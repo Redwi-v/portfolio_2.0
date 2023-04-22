@@ -1,0 +1,5 @@
+{
+    "editor.minimap.size": "proportional",
+    "scm.diffDecorationsGutterWidth": 3,
+    "prettier.tabWidth": 4
+}
