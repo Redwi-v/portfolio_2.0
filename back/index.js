@@ -4,6 +4,8 @@ const express = require('express');
 const cors = require('cors');
 const cookeParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
+
 const router = require('./router/index');
 const errorMiddleware = require('./middlewares/error-middleware');
 
@@ -12,7 +14,14 @@ const app = express();
 
 app.use(express.json());
 app.use(cookeParser());
-app.use(cors());
+app.use(express.static('static'));
+app.use(
+    cors({
+        origin: '*',
+    })
+);
+app.use(fileUpload({}));
+
 app.use('/api', router);
 
 app.use(errorMiddleware);
